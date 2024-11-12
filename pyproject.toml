@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["sergey-royt <goodstop687@gmail.com>"]
 readme = "README.md"
+packages = [{include = "dogs"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
