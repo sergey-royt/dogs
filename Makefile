@@ -4,3 +4,6 @@ make-migrations:
 
 migrate:
 	poetry run python manage.py migrate
+
+dev:
+	poetry run python manage.py runserver
