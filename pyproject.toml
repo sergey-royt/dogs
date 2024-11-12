@@ -8,6 +8,7 @@ packages = [{include = "dogs"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+django = "^5.1.3"
 
 
 [build-system]
