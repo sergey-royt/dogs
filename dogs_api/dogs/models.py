@@ -16,7 +16,7 @@ class Breed(models.Model):
 
     INT_VALIDATOR_MIN_1_MAX_5 = [MinValueValidator(1), MaxValueValidator(5)]
 
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     size = models.CharField(max_length=1, choices=SIZE_CHOICES)
     friendliness = models.IntegerField(validators=INT_VALIDATOR_MIN_1_MAX_5)
     trainability = models.IntegerField(validators=INT_VALIDATOR_MIN_1_MAX_5)
