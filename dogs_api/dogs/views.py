@@ -18,9 +18,11 @@ class BreedViewSet(viewsets.ModelViewSet):
     serializer_class = BreedSerializer
 
     def destroy(self, request: Request, *args: Any, **kwargs: Any) -> Response:
-        """Delete breed if there are no dogs"""
+        """Delete breed if there are no bounded dogs"""
 
         breed = self.get_object()
         if breed.dogs.count() > 0:
-            return Response("Breed has dogs", status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                "Breed has dogs", status=status.HTTP_400_BAD_REQUEST
+            )
         return super().destroy(request, *args, **kwargs)
