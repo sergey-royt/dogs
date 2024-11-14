@@ -1,4 +1,7 @@
+from typing import Any
+
 from rest_framework import viewsets, status
+from rest_framework.request import Request
 from rest_framework.response import Response
 
 from dogs_api.dogs.models import Dog, Breed
@@ -14,7 +17,9 @@ class BreedViewSet(viewsets.ModelViewSet):
     queryset = Breed.objects.all()
     serializer_class = BreedSerializer
 
-    def destroy(self, request, *args, **kwargs):
+    def destroy(self, request: Request, *args: Any, **kwargs: Any) -> Response:
+        """Delete breed if there are no dogs"""
+
         breed = self.get_object()
         if breed.dogs.count() > 0:
             return Response("Breed has dogs", status=status.HTTP_400_BAD_REQUEST)
